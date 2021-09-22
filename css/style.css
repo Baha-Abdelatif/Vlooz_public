@@ -1,0 +1,453 @@
+@import url(
+  'https://fonts.googleapis.com/css?family=Mukta:300,500,700');
+html, body, #content{
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+}
+body{
+  background: url("../img/background.jpg") no-repeat center center fixed;
+  background-size: cover;
+  font-family: 'Mukta', sans-serif;
+  --red: #B91E3B;
+  --yellow: #DCC12F;
+  --green: #006C13;
+  --bdxRed: #6d071a;
+  --darkBlue: #0A2C3A;
+  --lightBlue:#0385B9;
+  --transparentRed: rgba(109,7,26,0.75);
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+#viewContainer, #infosContainer, header{
+  box-shadow: 1px 2px 3px var(--bdxRed);
+}
+#content{
+  max-width: 100vw;
+  padding: 0;
+  margin: 1% auto;
+  border: none;
+}
+
+/* Style du Header */
+header{
+  width: 100%;
+  padding: 1.5%;
+  height: 10vh;
+  background-color: var(--bdxRed);
+  top: 0;
+  left: 0;
+  right: 0;
+}
+h1{
+  height: 100%;
+  font-size: 1.75rem;
+  line-height: 3.5rem;
+  text-transform: uppercase;
+  text-align: center;
+  font-weight: 700;
+  color: white;
+  text-shadow: 2px 2px 2px var(--darkBlue);
+}
+
+/* style du slider */
+#anchor{
+  position: absolute;
+  top:5%;
+  left: 0;
+}
+#sliderContainer{
+  position: relative;
+  height: 85vh;
+  margin-bottom: 5vh;
+}
+.arrow{
+  position: absolute;
+  bottom: 50%;
+  margin: 0.5%;
+}
+#arrowRight{
+  right: 0%;
+}
+#sliderControls{
+  position: absolute;
+  width: 50px;
+  top:5%;
+  right: 0;
+}
+.sliderControls, .arrow{
+  width: 50px;
+  height: 50px;
+  font-size: 1rem;
+  line-height: 2rem;
+  text-align: center;
+  color: white;
+  padding: 9px;
+  background-color: var(--darkBlue);
+  border: 2px solid white;
+  border-radius: 50%;
+}
+#playSlider{
+ display: none;
+}
+#slides{
+  height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+.slides.slide-active{
+  display: block;
+}
+#slide1{
+  background: url('../img/slides/slide_mobile_01.png') no-repeat center center;
+  background-size: contain;
+}
+#slide2{
+  background: url('../img/slides/slide_mobile_02.png') no-repeat center center;
+  background-size: contain;
+}
+#slide3{
+  background: url('../img/slides/slide_mobile_03.png') no-repeat center center;
+  background-size: contain;
+}
+#slide4{
+  background: url('../img/slides/slide_mobile_04.png') no-repeat center center;
+  background-size: contain;
+}
+.slides{
+  display: none;
+  flex-basis: 100%;
+  min-height: 400px;
+  width: 1200px;
+}
+#sliderButtons{
+  background-color: transparent;
+  position: absolute;
+  width: 25vw;
+  margin: 1% auto;
+  display: inline-flex;
+  justify-content: space-between;
+  bottom: -5%;
+  left: 25%;
+  right: 25%;
+}
+.sliderButtons{
+  background-color: var(--darkBlue);
+  min-height: 24px;
+  min-width: 24px;
+  padding: 2px;
+  border: 2px solid white;
+  border-radius: 50%;
+}
+.button-active, .sliderButtons:hover, .sliderControls:hover, .arrow:hover{
+  background-color: white;
+  border: 3px solid var(--darkBlue);
+  color: var(--darkBlue);
+  cursor: pointer;
+  text-decoration: none;
+}
+
+/* Style de la Map */
+#mapContainer{
+  height: 65vh;
+  width: 90%;
+  margin: 0 auto;
+  padding: 0;
+}
+#mapid{
+  width: 100%;
+  height: 100%;
+  border-radius: 25px;
+}
+#mapid:hover{
+  cursor: hand;
+}
+
+/* Style des FicheInfoStation */
+#formContainer{
+  margin: 0 auto;
+  padding-top: 1%;
+  height: 85vh;
+  width: 92%;
+  background-color: var(--transparentRed);
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  color: white;
+  border-radius: 25px;
+}
+#listeStations{
+  margin: 2.5%;
+  padding: 5px;
+}
+#titreStation{
+  min-height: 7vh;
+  max-height: 7vh;
+  margin: 2.5%;
+  text-align: center;
+  text-decoration: underline;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  line-height: 3rem;
+  font-weight: 600;
+  background-color: rgba(0,0,0,0.25);
+  text-shadow: 2px 2px 2px black;
+  border-radius: 15px;
+  box-shadow: 1px 2px 3px black;
+  word-break: keep-all;
+}
+.hidden{
+  opacity: 0;
+}
+.stationsToulouse{
+  color: white;
+  min-height: 30vh;
+  max-height: 30vh;
+  border-radius: 15px;
+  background-color: rgba(0,0,0,0.25);
+  text-shadow: 2px 2px 2px black;
+  display: flex;
+  flex-wrap:wrap;
+  flex-direction: column;
+  justify-content: space-evenly;
+  font-size: 1.5rem;
+  text-align: center;
+  box-shadow: 1px 2px 3px black;
+}
+.stationsToulouse *{
+  margin: 0 auto;
+}
+#stationAddress{
+  font-style: italic;
+}
+#totalStands, #totalBikes{
+  background-color: var(--bdxRed);
+  position: relative;
+  padding: 0;
+  border: 1px solid white;
+  height: 10px;
+  width: 200px;
+}
+#availableStands, #availableBikes{
+  position: absolute;
+  left: 0;
+  background-color: var(--green);
+  margin: 0;
+  height: 8px;
+}
+
+/* Style du formulaire */
+#formUtilisateur{
+  width: 95vw;
+  margin: 2.5% auto;
+}
+fieldset{
+  width: 100%;
+  padding: 2.5%;
+  margin: 1% auto;
+  border-radius: 5px;
+  background-color: rgba(0,0,0, 0.25);
+}
+label{
+  width: 20%;
+  color: white;
+  text-shadow: 1px 1px 2px var(--darkBlue);
+  font-size: 1.5rem;
+  text-decoration: underline;
+  margin: 0 auto;
+}
+input{
+  width: 70%;
+  padding-left: 2.5%;
+  margin: 0;
+  margin-left: 5%;
+  box-shadow: 1px 2px 3px var(--darkBlue);
+  font-size: 1.25rem;
+  border-radius: 5px;
+}
+#buttonForm{
+  margin: 0 auto;
+  width: 120px;
+  border-radius: 15px;
+  box-shadow: 1px 2px 3px var(--darkBlue);
+  background-color: var(--lightBlue);
+}
+#submitForm.btn.btn-info{
+  background-color: var(--lightBlue);
+  text-shadow: 1px 1px 1px var(--darkBlue);
+  width: 120px;
+  border: 1px solid white;
+  border-radius: 5px;
+}
+
+/* style du Canvas */
+#canvasesContainer{
+  display: none;
+  margin: 1% auto;
+}
+#signature{
+  color: black;
+  background-color: white;
+}
+#buttons{
+  width: 220px;
+  margin: 1% auto;
+}
+#buttons .btn{
+  width: 100px;
+  margin: none;
+  border: 1px solid white;
+}
+#clearSignature.btn-danger{
+  background-color: var(--bdxRed);
+}
+#submitSignature.btn-success{
+  background-color: var(--green);
+}
+/* Style de la section Infos Réservation */
+#infosContainer{
+  background-color: var(--transparentRed);
+  height: 55vh;
+  width: 95vw;
+  margin: 2% auto;
+  padding: 2%;
+  border-radius: 25px;
+  color: white;
+  text-align: center;
+  text-shadow: 1px 1px 1px black;
+  font-size: 1.25rem;
+}
+#infosContainer *{
+  margin: 2.5% 0;
+  border-radius: 25px;
+}
+
+/*-----------------------------------------------------------------------------------------------------------------------------------
+
+                                                    STYLE DESKTOP
+
+-----------------------------------------------------------------------------------------------------------------------------------*/
+
+@media screen and (min-width: 1090px){
+
+  /* Style du header */
+  header{
+    height: 10vh;
+  }
+  h1{
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+    text-transform: uppercase;
+    text-align: center;
+    font-weight: 700;
+    color: white;
+    text-shadow: 2px 2px 2px var(--darkBlue);
+  }
+  #content{
+    margin: 1% auto;
+  }
+  /* Style du slider */
+  #sliderContainer{
+    height: 85vh;
+  }
+  #slide1{
+    background: url('../img/slides/slide_01.png') no-repeat center center;
+    background-size: contain;
+  }
+  #slide2{
+    background: url('../img/slides/slide_02.png') no-repeat center center;
+    background-size: contain;
+  }
+  #slide3{
+    background: url('../img/slides/slide_03.png') no-repeat center center;
+    background-size: contain;
+  }
+  #slide4{
+    background: url('../img/slides/slide_04.png') no-repeat center center;
+    background-size: contain;
+  }
+
+  /* Style de la vue */
+  #viewContainer{
+    box-shadow: none;
+    width: 98%;
+    height: 100vh;
+    margin: 0 auto;
+  }
+
+  /* Style de la map */
+  #mapContainer{
+    height: 85%;
+    width: 60%;
+    margin: 0;
+  }
+  #mapid{
+    border-radius: 25px 0 0 25px;
+  }
+
+  /* Style du formulaire */
+  #formContainer{
+    border-radius:0 25px 25px 0 ;
+    height: 85%;
+    width: 40%;
+    margin: 0;
+  }
+  #listeStations{
+    max-height: 65%;
+    margin: 0 auto;
+  }
+  #titreStation{
+    min-width: 35vw;
+    max-width: 35vw;
+    width: 35vw;
+    margin: 0 auto;
+    padding: 1%;
+  }
+  .stationsToulouse{
+    min-width: 35vw;
+    max-width: 35vw;
+    width: 35vw;
+    min-height: 40vh;
+    height: 40vh;
+    max-height: 40vh;
+    margin: 0 auto;
+  }
+  #stationAddress{
+    font-size: 1.5rem;
+  }
+  #formUtilisateur{
+    width: 90%;
+    margin: 1% auto;
+  }
+  fieldset{
+    border-radius: 15px;
+  }
+  /* Style de la section infos */
+  #infosContainer{
+    margin: 0;
+    padding: 1% 5%;
+    height: 15%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+    align-content: flex-start;
+  }
+  #infosContainer *{
+    margin: .5% 2.5%;
+    text-align: left;
+  }
+  #infosContainer span{
+    margin: .5% 0;
+  }
+  #formUtilisateur, #canvasesContainer{
+    max-height: 20%;
+  }
+  .infosReservation{
+    font-size: 1rem;
+  }
+} /* Fin media queries desktop */
